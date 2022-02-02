@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import {router} from './routers/index'
+import {store} from './store/index'
 
 
 /* main.js는 앱의 설정과 구조를 파악할 수 있는 청사진의 역할을 하는것이 좋다. */
@@ -9,7 +10,9 @@ import {router} from './routers/index'
 Vue.config.productionTip = false
 
 
+
 new Vue({
   render: h => h(App),
   router,
+  store,
 }).$mount('#app')
