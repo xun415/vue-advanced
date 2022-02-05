@@ -1,22 +1,21 @@
 <template>
   <div>
-    <div v-for="news in this.$store.state.news">{{ news.title }}</div>
+    <p  v-for="item in this.$store.state.news">
+      <a v-bind:href="item.url">
+        {{ item.title }}
+      </a>
+      <small>{{ item.time_ago }} by
+        <router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
+      </small>
+    </p>
   </div>
 </template>
 
 <script>
-import { fetchNewsList} from '../api/index.js'
 export default {
   name: "NewsView",
   created() {
     this.$store.dispatch('FETCH_NEWS');
-    // // 1
-    // fetchNewsList()
-    // .then(response => {
-    //   // 2
-    //   this.users = response.data
-    // })
-    // .catch(err => console.log(err))
   }
 }
 </script>
