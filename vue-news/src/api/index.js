@@ -17,6 +17,9 @@ function fetchAskList() {
 function fetchJobsList() {
     return axios.get(`${config.baseUrl}jobs/1.json`);
 }
+function fetchList(pageName) {
+    return axios.get(`${config.baseUrl}${pageName}/1.json`)
+}
 
 function fetchUserInfo(name) {
     return axios.get(`https://api.hnpwa.com/v0/user/${name}.json`);
@@ -27,10 +30,12 @@ function fetchCommentItem(id) {
 }
 
 
+
 export {
     fetchNewsList,
     fetchAskList,
     fetchJobsList,
+    fetchList,
     fetchUserInfo,
     fetchCommentItem,
 }

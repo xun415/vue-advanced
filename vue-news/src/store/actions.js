@@ -1,10 +1,11 @@
-import {fetchAskList, fetchJobsList, fetchNewsList, fetchUserInfo, fetchCommentItem } from "../api";
+import {fetchAskList, fetchJobsList, fetchNewsList, fetchUserInfo, fetchCommentItem, fetchList } from "../api";
 
 export default {
     FETCH_NEWS({ commit }) { // mutation에 접근할 수 있도록 하는 매개변수
         fetchNewsList()
-            .then(({data}) => {
-                commit('SET_NEWS', data);
+            .then((response) => {
+                commit('SET_NEWS',response.data);
+                return response;
             })
             .catch(err => {
                 console.log(err);
@@ -41,6 +42,15 @@ export default {
         fetchCommentItem(id)
             .then(({data})=> {
               commit('SET_ITEM', data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    },
+    FETCH_LIST( {commit}, pageName) {
+        fetchList(pageName)
+            .then(({data}) => {
+                commit('SET_LIST', data)
             })
             .catch(err => {
                 console.log(err);
