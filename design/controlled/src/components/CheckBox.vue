@@ -1,0 +1,19 @@
+<template>
+  <input type="checkbox"  :value="value" @click="toggleCheckBox">
+</template>
+
+<script>
+export default {
+  name: "CheckBox",
+  props : ['value'],
+  methods : {
+    toggleCheckBox() {
+      this.$emit('input', !this.value)
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
