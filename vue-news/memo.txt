@@ -22,3 +22,5 @@ https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/
 
 
 
+배포
+- npm run build > 생성된  dist 폴더하위 파일들을 배포하면 됨
